@@ -1,24 +1,13 @@
-import psycopg2
-from dotenv import load_dotenv
-import os
+from connect_db import connect_db
 
-# Load environment variables from .env file
-load_dotenv()
-
-conn = psycopg2.connect(
-    host=os.getenv("DB_HOST"),
-    port=os.getenv("DB_PORT"),
-    dbname=os.getenv("DB_NAME"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD")
-)
+conn = connect_db()
 
 cur = conn.cursor()
 
 # Create table SQL
 create_table_sql = """
 CREATE TABLE IF NOT EXISTS geographic_locator (
-    county_code VARCHAR(500),
+    county_code VARCHAR(50),
     statename VARCHAR(500),
     county VARCHAR(500),
     ma_region_code VARCHAR(500),
@@ -27,7 +16,12 @@ CREATE TABLE IF NOT EXISTS geographic_locator (
     pdp_region VARCHAR(500)
 )
 """
-cur.execute(create_table_sql)
+
+try:
+    cur.execute(create_table_sql)
+except Exception as e:
+    print("Error creating table:", e)
+    conn.rollback()
 
 # cur.executemany(insert_sql, data)
 conn.commit()
