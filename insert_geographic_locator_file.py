@@ -25,7 +25,7 @@ c = 0
 for line in lines:
     c+=1
     if c%500 == 0:
-        print(line)  # Debug: print each line to verify content
+        print(line)  # Debug: print each 500 line to verify content
     if not header_skipped:
         header_skipped = True
         continue
@@ -35,7 +35,7 @@ for line in lines:
 
 # limit to first 10 rows for testing
 # data = data[:10]
-data = data[10:]
+# data = data[10:]
 
 insert_sql = """
 INSERT INTO geographic_locator (
@@ -59,7 +59,7 @@ INSERT INTO geographic_locator (
 #         conn.close()
 
 try:
-    batch_size = 20
+    batch_size = 50
     cur = conn.cursor() 
     for i in range(0, len(data), batch_size):
         temp_data = data[i:i+batch_size]
