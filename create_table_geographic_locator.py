@@ -17,6 +17,17 @@ CREATE TABLE IF NOT EXISTS geographic_locator (
 )
 """
 
+# cur.execute("""
+# ALTER TABLE geographic_locator 
+#   ALTER COLUMN county_code TYPE varchar(500),
+#   ALTER COLUMN statename TYPE varchar(500),
+#   ALTER COLUMN county TYPE varchar(500),
+#   ALTER COLUMN ma_region_code TYPE varchar(500),
+#   ALTER COLUMN ma_region TYPE varchar(500),
+#   ALTER COLUMN pdp_region_code TYPE varchar(500),
+#   ALTER COLUMN pdp_region TYPE varchar(500);
+# """)
+
 try:
     cur.execute(create_table_sql)
 except Exception as e:

@@ -20,6 +20,10 @@ CREATE TABLE IF NOT EXISTS basic_drugs_formulary (
   STEP_THERAPY_YN CHAR(1)
 )
 """
+# cur.execute("""
+# ALTER TABLE basic_drugs_formulary 
+# ALTER COLUMN QUANTITY_LIMIT_AMOUNT TYPE DECIMAL(7,2);
+# """)
 
 try:
     cur.execute(create_table_sql)
