@@ -36,14 +36,6 @@ for line in lines:
         continue
     fields = [x.strip() for x in line.strip().split('|')]
     if len(fields) == 14:
-        # if fields[7] == '':  # QUANTITY_LIMIT_AMOUNT
-        #     fields[7] = None
-        # if fields[8] == '':  # QUANTITY_LIMIT_DAYS
-        #     fields[8] = None
-        # fields[1] = int(fields[1]) if fields[1] != '' else None  # FORMULARY_VERSION
-        # fields[2] = int(fields[2]) if fields[2] != '' else None  # CONTRACT_YEAR
-        # fields[3] = int(fields[3]) if fields[3] != '' else None  # RXCUI
-        # fields[5] = int(fields[5]) if fields[5] != '' else None  # TIER_LEVEL_VALUE
         data.append(tuple(fields))
 
 
