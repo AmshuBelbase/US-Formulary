@@ -1,0 +1,5 @@
+download_dir: data/raw
+
+files:
+  - name: medicaid_spending_by_drug
+    url: "https://data.cms.gov/sites/default/files/dataset_zips/6581f17a7519dd1237a2c70e48310eb5/Monthly%20Prescription%20Drug%20Plan%20Formulary%20and%20Pharmacy%20Network%20Information.zip"
