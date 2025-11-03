@@ -1,3 +1,5 @@
+# uvicorn main:app --reload
+
 from dotenv import load_dotenv
 import os
 from fastapi import FastAPI, Query, HTTPException, status, Request
